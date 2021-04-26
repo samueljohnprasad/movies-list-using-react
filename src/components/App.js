@@ -45,7 +45,7 @@ class  App extends React.Component {
   }
 
   render(){
-    const {movies}=this.props.store.getState();   // {movies:{},search:{}}
+    const {movies,search}=this.props.store.getState();   // {movies:{},search:{}}
     const{list,favourite,showFavourites}=movies; 
    // const{list,favourite,showFavourites}=this.props.store.getState();   // {movies:{},search:{}}   //it contains list[] and fav{}
    // const movies = this.props.store.getState()  {}
@@ -54,7 +54,7 @@ class  App extends React.Component {
    const diplayMovies=showFavourites? favourite:list
       return (
           <div className="App">
-          <Navbar></Navbar>
+          <Navbar dispatch={this.props.store.dispatch} search={search}></Navbar>
           <div className='main'>
             <div className='tabs'>
               <div className={`tab ${showFavourites?'': 'active-tabs' }`} onClick={()=> this.onChangeTab(false)}> Movies</div>  
@@ -69,7 +69,7 @@ class  App extends React.Component {
               
                 </div>
                
-               {diplayMovies.length==0 ? <div className="no-movies">No movies to display!</div>:null}
+               {diplayMovies.length===0 ? <div className="no-movies">No movies to display!</div>:null}
 
               
           </div>
