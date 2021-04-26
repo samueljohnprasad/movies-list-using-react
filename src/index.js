@@ -4,9 +4,10 @@ import './index.css';
 import App from './components/App.js';
 import reportWebVitals from './reportWebVitals';
 import {createStore} from 'redux' 
-import {movies} from './reducers'
+import {rootReducer} from './reducers'
+//import {movies} from './reducers'
 
-const store= createStore(movies);   
+const store= createStore(rootReducer );   
 console.log('store',store)
 // console.log('before state',store.getState())
 

@@ -29,8 +29,9 @@ class  App extends React.Component {
   }
 
   isMovieFavourite=(movie)=>{
-    const {favourite} =this.props.store.getState();
-    const index = favourite.indexOf(movie);
+    //const {favourite} =this.props.store.getState();
+    const {movies} =this.props.store.getState();
+    const index = movies.favourite.indexOf(movie);
 
     if(index!==-1){
       console.log("found movie")
@@ -44,7 +45,9 @@ class  App extends React.Component {
   }
 
   render(){
-    const{list,favourite,showFavourites}=this.props.store.getState();   //now her it contains list[] and fav{}
+    const {movies}=this.props.store.getState();   // {movies:{},search:{}}
+    const{list,favourite,showFavourites}=movies; 
+   // const{list,favourite,showFavourites}=this.props.store.getState();   // {movies:{},search:{}}   //it contains list[] and fav{}
    // const movies = this.props.store.getState()  {}
    // console.log('movies',this.props.store.getState())
    console.log('render',this.props.store.getState())
